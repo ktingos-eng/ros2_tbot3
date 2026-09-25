@@ -1,0 +1,17 @@
+#VRML_SIM R2025a utf8
+
+PROTO SimulationSupervisor [
+  field SFString name "SimulationSupervisor"
+  field SFString controller "<extern>"
+  field MFString controllerArgs []
+  field SFBool synchronization TRUE
+]
+{
+  Robot {
+    name IS name
+    controller IS controller
+    controllerArgs IS controllerArgs
+    supervisor TRUE
+    synchronization IS synchronization
+  }
+}
