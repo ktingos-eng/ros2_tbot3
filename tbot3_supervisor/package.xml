@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>tbot3_webots</name>
+  <name>tbot3_supervisor</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="k.tiggos@gmail.com">ktingos</maintainer>
@@ -13,12 +13,9 @@
   <test_depend>ament_lint_common</test_depend>
 
   <depend>rclcpp</depend>
-  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
   <depend>webots_ros2_driver</depend>
   <depend>pluginlib</depend>
-  <depend>nav_msgs</depend>
-  <depend>tbot3_rviz</depend>
-  <depend>tbot3_supervisor</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(tbot3_webots)
+project(tbot3_supervisor)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -8,12 +8,10 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(geometry_msgs REQUIRED)
-find_package(webots_ros2_driver REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(pluginlib REQUIRED)
-find_package(nav_msgs REQUIRED)
-find_package(tbot3_rviz REQUIRED)
-find_package(tbot3_supervisor REQUIRED)
+find_package(webots_ros2_driver REQUIRED)
+find_package(tbot3_interfaces REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -30,14 +28,12 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# Export plugin config file
-pluginlib_export_plugin_description_file(webots_ros2_driver tb3_driver.xml)
+pluginlib_export_plugin_description_file(webots_ros2_driver sim_supervisor.xml)
 
-# Driver lib
 add_library(
   ${PROJECT_NAME}
   SHARED
-  src/tbot3_driver.cpp
+  src/simulation_supervisor.cpp
 )
 
 target_include_directories(
@@ -51,8 +47,7 @@ ament_target_dependencies(
   pluginlib
   rclcpp
   webots_ros2_driver
-  nav_msgs
-  tbot3_rviz
+  tbot3_interfaces
 )
 
 install(TARGETS
@@ -62,11 +57,8 @@ install(TARGETS
   RUNTIME DESTINATION bin
 )
 
-# Install directories
 install(DIRECTORY
-  launch
   description
-  worlds
   DESTINATION share/${PROJECT_NAME}
 )
 

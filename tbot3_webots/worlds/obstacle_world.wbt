@@ -4,7 +4,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/CircleArena.proto"
 EXTERNPROTO "/home/ktingos/ros2/colcon_ws/src/ros2_tbot3/tbot3_webots/description/proto/Turtlebot3Waffle.proto"
-EXTERNPROTO "/home/ktingos/ros2/colcon_ws/src/ros2_tbot3/tbot3_webots/description/proto/SimulationSupervisor.proto"
+EXTERNPROTO "/home/ktingos/ros2/colcon_ws/src/ros2_tbot3/tbot3_supervisor/description/proto/SimulationSupervisor.proto"
 
 WorldInfo {
 }
