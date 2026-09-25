@@ -13,9 +13,10 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 def generate_launch_description():
     pkg_dir = get_package_share_directory("tbot3_webots")
     pkg_rviz = get_package_share_directory("tbot3_rviz")
+    pkg_super = get_package_share_directory("tbot3_supervisor")
     
     urdf_proto = os.path.join(pkg_dir,'description/urdf',"tbot3_waffle_proto.urdf")
-    urdf_super = os.path.join(pkg_dir,'description/urdf','sim_super.urdf')
+    urdf_super = os.path.join(pkg_super,'description/urdf','sim_super.urdf')
     urdf_state = os.path.join(pkg_dir,'description/urdf',"turtlebot3_waffle_clean.urdf")
     with open(urdf_state,'r') as urdf:
         lines = urdf.readlines()
