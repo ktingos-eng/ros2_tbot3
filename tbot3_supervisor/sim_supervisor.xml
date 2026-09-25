@@ -1,0 +1,8 @@
+<library path="tbot3_supervisor">
+    <class type="sim_super::SimSupervisor" base_class_type="webots_ros2_driver::PluginInterface">
+        <description>
+            Custom simulation supervisor for Webots.
+            Loaded as plugin upon virtual robot "SimulationSupervisor"
+        </description>
+    </class>
+</library>
