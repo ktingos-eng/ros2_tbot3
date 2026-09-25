@@ -15,6 +15,7 @@ def generate_launch_description():
     pkg_rviz = get_package_share_directory("tbot3_rviz")
     
     urdf_proto = os.path.join(pkg_dir,'description/urdf',"tbot3_waffle_proto.urdf")
+    urdf_super = os.path.join(pkg_dir,'description/urdf','sim_super.urdf')
     urdf_state = os.path.join(pkg_dir,'description/urdf',"turtlebot3_waffle_clean.urdf")
     with open(urdf_state,'r') as urdf:
         lines = urdf.readlines()
@@ -52,6 +53,13 @@ def generate_launch_description():
         }]
     )
 
+    super = WebotsController(
+        robot_name="SimulationSupervisor",
+        parameters=[{
+            'robot_description': urdf_super,
+            'use_sim_time': True
+        }]
+    )
 
     rviz_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -65,6 +73,7 @@ def generate_launch_description():
         robot_state_publisher,
         joint_state_publisher,
         driver,
+        super,
         rviz_launch,
         launch.actions.RegisterEventHandler(
             event_handler=OnProcessExit(
