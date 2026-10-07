@@ -23,11 +23,11 @@ costmap:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: true
         footprint_clearing_enabled: true
-        observation_sources: points
+        observation_sources: scan
 
-        points:
-          topic: /scan/point_cloud
-          data_type: "PointCloud2"
+        scan:
+          topic: /scan
+          data_type: "LaserScan"
           clearing: true
           marking: true
           min_obstacle_height: 0.0
@@ -40,4 +40,4 @@ costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         cost_scaling_factor: 3.0
-      inflation_radius: 0.55
+        inflation_radius: 0.55

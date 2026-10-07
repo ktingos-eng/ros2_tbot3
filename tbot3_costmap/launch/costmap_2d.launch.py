@@ -12,7 +12,7 @@ def generate_launch_description():
     costmap_params = os.path.join(
         get_package_share_directory("tbot3_costmap"),
         "config",
-        "costmap.yaml"
+        "costmap_scan.yaml"
     )
 
     costmap_2d = launch_ros.actions.LifecycleNode(
