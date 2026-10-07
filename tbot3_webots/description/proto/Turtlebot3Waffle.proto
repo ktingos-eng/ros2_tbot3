@@ -49,8 +49,8 @@ PROTO Turtlebot3Waffle [
         children [
           Lidar {
             name "lidar"
-            horizontalResolution 1024
-            numberOfLayers 16
+            horizontalResolution 128
+            numberOfLayers 1
             fieldOfView 6.283185
             verticalFieldOfView 0.523599
             minRange 0.15
