@@ -29,11 +29,22 @@ def generate_launch_description():
         )
     )
 
+    scan_norm = launch_ros.actions.Node(
+        package='data_preprocessing',
+        executable='scan_normalizer',
+        output='screen',
+        parameters=[{'use_unit_range': False}]
+    )
+
     return launch.launch_description.LaunchDescription([
         simulation,
-        teleop,
+        # teleop,
         launch.actions.TimerAction(
             period=6.0,
             actions=[costmap]
+        ),
+        launch.actions.TimerAction(
+            period=1.0,
+            actions=[scan_norm]
         )
     ])

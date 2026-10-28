@@ -19,6 +19,7 @@
   <depend>nav_msgs</depend>
   <depend>tbot3_rviz</depend>
   <depend>tbot3_supervisor</depend>
+  <depend>data_preprocessing</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
